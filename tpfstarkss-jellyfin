@@ -1,0 +1,7 @@
+FROM jellyfin/jellyfin:latest
+
+# Exponer el puerto que usa Jellyfin
+EXPOSE 8096
+
+# Render define el puerto con la variable PORT, así que la usamos
+CMD ["sh", "-c", "export JELLYFIN_PublishedServerUrl=http://0.0.0.0:${PORT:-8096} && jellyfin"]
